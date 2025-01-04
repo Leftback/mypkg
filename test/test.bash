@@ -2,11 +2,10 @@
 
 dir=~
 [ "$1" != "" ] && dir="$1"
-   　　     　　　
+
 cd $dir/ros2_ws
 colcon build
-source $dir/.bashrc 　
-timeout 10 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log
+source install/setup.bash
 
-cat /tmp/mypkg.log |
-grep 'Listen: 10'
+timeout 10 ros2 run mypkg mem_usage_publisher > /tmp/mypkg.log
+cat /tmp/mypkg.log | grep '使用メモリ:'
