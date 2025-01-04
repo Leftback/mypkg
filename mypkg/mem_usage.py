@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 Leftback
+# SPDX-License-Identifier: BSD-3-Clause
+
 import rclpy
 from rclpy.node import Node
 import psutil
