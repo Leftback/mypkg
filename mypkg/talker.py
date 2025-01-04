@@ -1,20 +1,33 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int16
+import psutil
+from std_msgs.msg import String
 
-rclpy.init()
-node = Node("talker")
-pub = node.create_publisher(Int16, "countup", 10)
-n = 0
+class MemUsagePublisher(Node):
 
-def cb():
-    global n
-    msg = Int16()
-    msg.data = n
-    pub.publish(msg)
-    n += 1
+    def __init__(self) -> None:
+        super().__init__('mem_usage_publisher')
+        self.publisher = self.create_publisher(String, 'mem_usage', 10)
+        self.timer = self.create_timer(1.0, self.publish_mem_usage)
 
+    def publish_mem_usage(self) -> None:
+        used_mem = psutil.virtual_memory().used / (1024 ** 2)
+        msg = String(data=f'使用メモリ: {used_mem:.2f} MB')
+        self.publisher.publish(msg)
+        self.get_logger().info(f'{msg.data}')
 
-def main():
-    node.create_timer(0.5, cb)
-    rclpy.spin(node)
+def main(args=None) -> None:
+    rclpy.init(args=args)
+    node = MemUsagePublisher()
+    node.get_logger().info('mem_usage_publisher start!')
+
+    try:
+        rclpy.spin(node)
+    except (KeyboardInterrupt, ExternalShutdownException):
+        pass
+    finally:
+        rclpy.shutdown()
+        node.destroy_node()
+
+if __name__ == '__main__':
+    main()
