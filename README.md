@@ -45,10 +45,35 @@ ros2 run mypkg mem_usage_publisher
 
 ## 実行例
 以下に示す例は、パッケージに含まれるテスト用サブスクライバーノード(test_sub.py)を別の端末で使用したものです。
+以下ののコマンドで起動
+```
+ colcon build
+```
+```
+source install/setup.bash
+```
+```
+ros2 run mypkg test_sub
+```
+### 実行結果
+[INFO] [1736265701.993563087] [mem_usage_subscriber]: mem_usage_subscriber start!
+[INFO] [1736265702.487121069] [mem_usage_subscriber]: 使用メモリ: 422.11 MB
+[INFO] [1736265703.487369177] [mem_usage_subscriber]: 使用メモリ: 422.11 MB
+[INFO] [1736265704.487810902] [mem_usage_subscriber]: 使用メモリ: 423.71 MB
+[INFO] [1736265705.487035892] [mem_usage_subscriber]: 使用メモリ: 423.71 MB
+[INFO] [1736265706.487039050] [mem_usage_subscriber]: 使用メモリ: 423.90 MB
 
+## 注意事項
+mem_usage_publisher ノードを先に起動してください。
 
 # 環境
 ## 必要なソフトウェア
+- ROS2
+- Python3.8＋
+- 必要な依存パッケージ
+  -rclpy
+  -std_msgs
+  -psutil
 
 ## テスト環境
 
