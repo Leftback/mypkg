@@ -12,19 +12,19 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        (os.path.join('share', package_name), glob('launch/*.launch.py'))
     ],
-    install_requires=['setuptools','rclpy','psutil','std_msgs'],
+    install_requires=['setuptools'],
     zip_safe=True,
     maintainer='leftback',
     maintainer_email='s23C1027AG@s.chibakoudai.jp',
-    description='a package for practice',
+    description='ロボットシステム学課題２',
     license='BSD-3-Clause',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': [ 
-            'talker = mypkg.mem_usage:main',
-            'listener = mypkg.test_subscriber:main',
+        'console_scripts': [
+            'mem_usage_publisher = mypkg.mem_usage:main',
+            'test_sub = mypkg.test_sub:main',
         ],
     },
 )
+

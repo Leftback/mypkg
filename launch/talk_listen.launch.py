@@ -12,7 +12,7 @@ def generate_launch_description():
         )
     listener = launch_ros.actions.Node(
         package='mypkg',
-        executable='test_subscriber',
+        executable='test_sub',
         output='screen'        #ログを端末に出すための設定
         )
 
