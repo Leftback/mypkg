@@ -17,16 +17,14 @@ class MemUsagePublisher(Node):
         used_mem = psutil.virtual_memory().used / (1024 ** 2)
         msg = String(data=f'使用メモリ: {used_mem:.2f} MB')
         self.publisher.publish(msg)
-        self.get_logger().info(f'{msg.data}')
 
 def main(args=None) -> None:
     rclpy.init(args=args)
     node = MemUsagePublisher()
-    node.get_logger().info('mem_usage_publisher start!')
 
     try:
         rclpy.spin(node)
-    except (KeyboardInterrupt, ExternalShutdownException):
+    except (KeyboardInterrupt, rclpy.exceptions.ROSInterruptException):
         pass
     finally:
         rclpy.shutdown()
@@ -34,3 +32,4 @@ def main(args=None) -> None:
 
 if __name__ == '__main__':
     main()
+

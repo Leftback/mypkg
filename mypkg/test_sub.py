@@ -17,7 +17,7 @@ class MemUsageSubscriber(Node):
         self.subscription
 
     def listener_callback(self, msg: String) -> None:
-        self.get_logger().info(f'受信メッセージ: {msg.data}')
+        self.get_logger().info(f'{msg.data}')
 
 def main(args=None) -> None:
     rclpy.init(args=args)

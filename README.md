@@ -4,7 +4,7 @@
 # メモリの使用量
 ## 概要
 これはROS2のパッケージで,システムの使用メモリ量を毎秒パブリッシュするノード（mem_usage_publisher）を提供します。
-## インストール方法
+## 使用方法
 1.リポジトリをクローン
 ```
 https://github.com/Leftback/mypkg
@@ -29,10 +29,10 @@ colcon build
 4.環境設定
 ```
 source install/setup.bash
-
-
-## 使用方法
 ```
+5.パブリッシャーノードの起動
+```
+ros2 run mypkg mem_usage_publisher
 ```
 
 
