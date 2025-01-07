@@ -3,9 +3,38 @@
 
 # メモリの使用量
 ## 概要
-これはROS2のパッケージです。
-mem_usage.pyは、PCのメモリの使用量（MB）を毎秒topicに出力するノードです。
+これはROS2のパッケージで,システムの使用メモリ量を毎秒パブリッシュするノード（mem_usage_publisher）を提供します。
+## インストール方法
+1.リポジトリをクローン
+```
+https://github.com/Leftback/mypkg
+```
+2.ワークスペースをセットアップ
+```
+mkdir -p ~/ros2_ws/src
+```
+```
+cd ~/ros2_ws/src
+```
+```
+ln -s /path/to/mypkg .
+```
+3.ビルド
+```
+cd ~/ros2_ws
+```
+```
+colcon build
+```
+4.環境設定
+```
+source install/setup.bash
+
+
 ## 使用方法
+```
+```
+
 
 ## 実行例
 
