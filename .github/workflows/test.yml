@@ -13,11 +13,11 @@ jobs:
           apt-get install -y python3-pip
           pip install psutil
 
-      - name: Build and test
+      - name: build and test
         run: |
           rsync -av ./ /root/ros2_ws/src/mypkg/
           cd /root/ros2_ws
           rosdep update
-          rosdep install -i --from-path src --rosdistro humble -y || true
+          rosdep install -i --from-path src --rosdistro humble -y
           bash -xv ./src/mypkg/test/test.bash /root
 
