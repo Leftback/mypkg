@@ -1,4 +1,0 @@
-[console_scripts]
-mem_usage_publisher = mypkg.mem_usage:main
-test_sub = mypkg.test_sub:main
-
