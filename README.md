@@ -3,7 +3,7 @@
 
 # メモリの使用量
 ## 概要
-これはROS2のパッケージで,システムの使用メモリ量を毎秒パブリッシュするノード（mem_usage_publisher）を提供します。
+これはROS2のパッケージで,システムの使用メモリ量（MB）を毎秒パブリッシュするノード（mem_usage_publisher）を提供します。
 ## 必要な前提条件
 
 - **ROS 2**: このパッケージは ROS 2 がインストールされている環境で動作します。詳細は [ROS 2 のインストールガイド](https://docs.ros.org/en/foxy/Installation.html) を参照してください。
@@ -45,7 +45,7 @@ ros2 run mypkg mem_usage_publisher
 
 ## 実行例
 以下に示す例は、パッケージに含まれるテスト用サブスクライバーノード(test_sub.py)を別の端末で使用したものです。
-以下ののコマンドで起動
+以下ののコマンドで起動します。
 ```
  colcon build
 ```
@@ -81,10 +81,11 @@ mem_usage_publisher ノードを先に起動してください。
   - psutil
 
 ## テスト環境
-
+- ubuntu20.04 on Windows
 ## ライセンス
-- このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます。
-- このパッケージの
+- このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
+- このパッケージのコードの一部は、下記のスライド（CC-BY-SA 4.0 by ryuichi ueda）のものを、本人の許可を得て自身の著作としたものです.
+- https://github.com/ryuichiueda/slides_marp/tree/master/robosys2024
 - © 2024 Leftback
 
 
