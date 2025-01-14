@@ -9,11 +9,18 @@ setup(
     version='0.0.0',
     packages=find_packages(exclude=['test']),
     data_files=[
-        ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
+        ('share/ament_index/resource_index/packages', ['resource/' + package_name] 
+         if os.path.exists('resource/' + package_name) else []),
+
         ('share/' + package_name, ['package.xml']),
-        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
+
+        (os.path.join('share', package_name, 'launch'), 
+         glob('launch/*.launch.py') if os.path.exists('launch') else []),
     ],
-    install_requires=['setuptools', 'psutil'],
+    install_requires=[
+        'setuptools', 
+        'psutil'
+    ],
     zip_safe=True,
     maintainer='leftback',
     maintainer_email='s23C1027AG@s.chibakoudai.jp',
