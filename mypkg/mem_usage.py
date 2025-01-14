@@ -1,14 +1,6 @@
 # SPDX-FileCopyrightText: 2024 Leftback
 # SPDX-License-Identifier: BSD-3-Clause
 
-import os
-import sys
-
-# third_party のパスを設定
-current_dir = os.path.dirname(os.path.abspath(__file__))
-third_party_dir = os.path.join(current_dir, '..', 'third_party', 'psutil')
-sys.path.insert(0, third_party_dir)
-
 import rclpy
 from rclpy.node import Node
 import psutil
@@ -24,7 +16,6 @@ class MemUsagePublisher(Node):
         used_mem = psutil.virtual_memory().used / (1024 ** 2)
         msg = String(data=f'使用メモリ: {used_mem:.2f} MB')
         self.publisher.publish(msg)
-        self.get_logger().info(f'Published memory usage: {used_mem:.2f} MB')
 
 def main(args=None) -> None:
     rclpy.init(args=args)

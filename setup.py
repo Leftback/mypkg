@@ -13,7 +13,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'psutil'],
     zip_safe=True,
     maintainer='leftback',
     maintainer_email='s23C1027AG@s.chibakoudai.jp',
@@ -25,9 +25,6 @@ setup(
             'mem_usage_publisher = mypkg.mem_usage:main',
             'test_sub = mypkg.test_sub:main',
         ],
-    },
-    package_data={
-        package_name: ['third_party/*'],
     },
 )
 
