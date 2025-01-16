@@ -16,11 +16,14 @@ jobs:
 
           apt-get update && apt-get install -y python3-pip python3-colcon-common-extensions
 
+          pip3 install psutil
+
           rosdep update
           rosdep install --from-paths src --ignore-src -r -y --rosdistro humble
 
           chmod +x ./src/mypkg/test/test.bash
           bash ./src/mypkg/test/test.bash /root
+
 
       - name: Post-Build Cleanup
         run: apt-get clean
