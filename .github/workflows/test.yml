@@ -17,7 +17,7 @@ jobs:
           apt-get update && apt-get install -y python3-pip python3-colcon-common-extensions
 
           pip3 install psutil
-
+          source /opt/ros/humble/setup.bash
           rosdep update
           rosdep install --from-paths src --ignore-src -r -y --rosdistro humble
 

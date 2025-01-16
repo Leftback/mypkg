@@ -4,6 +4,7 @@ dir=~
 [ "$1" != "" ] && dir="$1"
 
 cd $dir/ros2_ws
+source /opt/ros/humble/setup.bash
 colcon build
 source install/setup.bash
 
